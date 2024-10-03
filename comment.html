@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>  
+<html>
+    <head> 
+      <!--Import Google Icon Font--> 
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+		<nav class=role="navigation"; style="background-color:rgb(204,229,255)">
+			<div class="nav-wrapper container">
+              <big><a class="white-text" href="index.html?">D&E</a></br></big>
+			  <ul class="right hide-on-med-and-down">
+
+				<a class="white-text" href="comment.html?">COMMENT</a></br>
+				<a class="white-text" href="result.html?">REVIEW</a></br>
+				<a class="white-text" onclick="alert('02-1234-5678')"><i class="material-icons">phone</i></a></br>    	
+				<a class="white-text" href="API.html?">PIXNET</a></br>
+			  </ul>
+			  <a href="https://punchdrink.com/" data-target="nav-mobile" class="sidenav-trigger" style="color:white"><i class="material-icons">menu</i></a>
+			</div>
+		  </nav>
+		   
+
+ <script type="text/javascript">
+  // 取得網址裡的參數 
+  function GetUrlVar(VarName) 
+  {
+    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regexS = "[\\?&]" + VarName + "=([^&#]*)";
+    var regex = new RegExp(regexS);
+    var results = regex.exec(window.location.href);
+    if (results == null)
+       return "";
+    else
+    return results[1]; 
+  }
+
+ </script>
+ <!-- 利用Google Visualization讀取Google Sheet https://www.labnol.org/code/google-sheet-d3js-visualization-200608 -->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script>
+
+     // https://developers.google.com/chart/interactive/docs/quick_start
+     // Load the Visualization API and the corechart package.
+     google.charts.load('current', {'packages':['corechart']});
+     // Set a callback to run when the Google Visualization API is loaded. 
+     google.charts.setOnLoadCallback(init);
+ 
+      function init() {
+        // 這個例子使用的試算表是 https://docs.google.com/spreadsheets/d/1QScI5d56Kh-LGywY4WR6EvRGPcalFQYUAdqMxbFVDvk/copy
+        // 將上述試算表另存副本後，你要在自己的雲端硬碟將該試算表設定成[知道連結的使用者都能查看]。
+        // 然後讓程式讀取 https://docs.google.com/spreadsheets/d/瀏覽器網址列上的網址擷取序號部分/gviz/tq?sheet=工作表名稱
+        // 也就是將下列的 1QScI5d56Kh-LGywY4WR6EvRGPcalFQYUAdqMxbFVDvk 更換成自己的檔案序號，以及最後部分指讀取哪個工作表。
+        var url =
+          'https://docs.google.com/spreadsheets/d/1wV6r7znlx1C9rk0TiatcSdI50qjGXc6Lo6WaJ3Elsuc/gviz/tq?sheet=工作表1';
+        var query = new google.visualization.Query(url);
+        query.setQuery('select *');
+        query.send(processSheetsData);
+      }   
+      </script>  
+      <script type="text/javascript">
+         function formresponse() {
+          var s = document.forms["form1"]["fname"].value;
+          var m = document.forms["form1"]["lname"].value;
+          var d = document.forms["form1"]["score"].value;
+          if (s==null || s=="")
+             { 
+              alert("First Name!");
+              return false;
+             } 
+          else if (m==null || m=="")
+             {
+              alert("Last Name!"); 
+              return false;
+             }
+          else if (d==null || d=="")
+             {
+              alert("Score!"); 
+              return false;
+             }
+          else
+             {
+              var MySubmit = "https://docs.google.com/forms/d/e/1FAIpQLSdTr5XUBHtVydj_-EHW7ViKe3kUHPe6atHedreMR41zlgeW-g/formResponse?entry.2039794506=" + s + "&entry.1417617627=" + m + "&entry.1789904792=" + d + "&submit=Submit";
+              var NewOpen = window.open(MySubmit);
+             }
+      }
+   </script>   
+  </head>
+  <body>  
+<nav class=role="navigation"; style="background-color:rgb(204,229,255)">
+ 
+ <center><form name="form1" action="javascript:formresponse();">
+      <br /><br /><br />
+   <h1>Support Us<br /></h1>
+       First Name: <input type="text" name="fname"><br /></br>
+       Last Name: <input type="text" name="lname"><br /></br>
+       Score:<input type="radio" id="html" name="score" value="🤍"><label for="score">1</label>
+      <input type="radio" id="html" name="score" value="🤍🤍"><label for="score">2</label>
+      <input type="radio" id="html" name="score" value="🤍🤍🤍"><label for="score">3</label>         
+      <input type="radio" id="html" name="score" value="🤍🤍🤍🤍"><label for="score">4</label>
+      <input type="radio" id="html" name="score" value="🤍🤍🤍🤍🤍"><label for="score">5</label><br><br>         
+      <input type="submit" value="Submit"></br></br>
+	  
+</center></form>   
+</body>
+
+		<footer style="background-color:rgb(204,229,255);">
+          
+		  <div class="container"> 
+		  <div>
+		  <a class="white-text" href="https://maps.google.com.tw/maps?f=q&h1=zh-TW&q=24.121308,120.677175&z=16&t=q"target="_blank"><big>Location</big></a> 
+		  </div>
+
+		  <div class="col l6 s12">
+		  <center><iframe width="80%" height="130%" 
+		  src="https://maps.google.com.tw/maps?f=q&h1=zh-TW&q=24.121308,120.677175&z=16&t=q&output=embed"title="Iframe Example"> 
+		  </iframe>
+		</div>
+			  <div class="col l6 s12">
+				<h6 class="white-text">Contact us</h6>
+				<ul>
+				  <i><a class="grey-text text-lighten-3" href="https://www.facebook.com/groups/462631141841016"></h2>FB</a>
+				  <i><a class="grey-text text-lighten-3" href="https://line.me/R/ti/p/@gomaji?from=page"></h2>Line</a>
+				  <i><a class="grey-text text-lighten-3" ></i></h2> 02-1234-5678</a>
+			    </ul>
+			  </div>
+		
+			<div class="col l6 s12">    
+			<div class="footer-copyright">
+			  <div class="container">
+				© 2022 CHRISTINE
+	    	  <p style="font-size:1px;"></p>
+		      </div>
+		    </div>
+	        </div>
+	  </footer>
+</html>

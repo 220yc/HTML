@@ -1,0 +1,492 @@
+
+  <!DOCTYPE html>   
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ 
+      <!-- 利用Google Visualization讀取Google Sheet https://www.labnol.org/code/google-sheet-d3js-visualization-200608 -->
+      <script src="https://www.gstatic.com/charts/loader.js"></script>
+     
+      <!-- CSS  -->
+      <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+	<script>
+	  // https://developers.google.com/chart/interactive/docs/quick_start
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded. 
+      google.charts.setOnLoadCallback(init);
+  
+      function init() {
+        // 這個例子使用的試算表是 https://docs.google.com/spreadsheets/d/1QScI5d56Kh-LGywY4WR6EvRGPcalFQYUAdqMxbFVDvk/copy
+        // 將上述試算表另存副本後，你要在自己的雲端硬碟將該試算表設定成[知道連結的使用者都能查看]。
+        // 然後讓程式讀取 https://docs.google.com/spreadsheets/d/瀏覽器網址列上的網址擷取序號部分/gviz/tq?sheet=工作表名稱
+        // 也就是將下列的 1QScI5d56Kh-LGywY4WR6EvRGPcalFQYUAdqMxbFVDvk 更換成自己的檔案序號，以及最後部分指讀取哪個工作表。
+        var url =
+          'https://docs.google.com/spreadsheets/d/1wV6r7znlx1C9rk0TiatcSdI50qjGXc6Lo6WaJ3Elsuc/gviz/tq?sheet=工作表1';
+        var query = new google.visualization.Query(url);
+        query.setQuery('select *');
+        query.send(processSheetsData);
+      }  
+      </script> 
+    </head>
+ 
+    <body>
+      
+      <nav class=role="navigation"; style="background-color:rgb(0,0,102)">
+    <div class="nav-wrapper container">
+      <a id="logo-container" class="brand-logo" style="color:white"><big>&weierp;</a>
+      <ul class="right hide-on-med-and-down">
+
+	    <li><a class="white-text" href="comment.html?">COMMENT</a></li>
+	    <li><a class="white-text" href="result.html?">REVIEW</a></li>
+		<li><a class="white-text" onclick="alert('02-1234-5678')"><i class="material-icons">phone</i></a></li>
+		<li><a class="white-text" href="API.html?">PIXNET</a></li>
+        <li><a class="white-text" href="https://punchdrink.com/">MORE</a></li>
+		<li><a href="https://punchdrink.com/"></a></li>
+      </ul>
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="https://punchdrink.com/">More</a></li>
+      </ul>
+      <a href="https://punchdrink.com/" data-target="nav-mobile" class="sidenav-trigger" style="color:white"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+
+        <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center white-text">D&E</h1>
+        <div class="row center">
+          <h5 class="header col s12 light" style="color:white">In wine there is wisdom, in beer there is Freedom, in water there is bacteria.― Benjamin Franklin</h5>
+        </div>
+       <div class="row center">
+        <button type="button" onclick="alert('Read Below To Learn More')" class="btn-large waves-effect" style="background-color:rgb(0,0,102)">Learn More</button>
+        </div>
+        <br><br>
+      </div>
+    </div> 
+    <div class="parallax"><img src="https://img.traveltriangle.com/blog/wp-content/uploads/2018/12/Australian-Drinks-Cover.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+  <div class="container">
+    <div class="section">
+ 
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center white-text"><i class="material-icons">account_circle</i></h2>
+            <h5 class="center"><strong><center><big>About Us</h5>
+            <p class="center">Best wine technology platform that addresses needs of any retailer, brand, or marketplace.</p>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center white-text"><i class="material-icons">group</i></h2>
+            <h5 class="center"><strong><center><big>Team</h5>
+               <p class="center">Product Merchandising
+
+								 Wine Sourcing & Curation
+ 
+								 Technology Development
+
+								 Creative Services</p>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center white-text"><i class="material-icons">live_help</i></h2>
+            <h5 class="center"><strong><center><big>Help</h5>
+            <p class="center">If you have any questions or want to learn more about us, please connect with us on 123456.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h2 class="header col s12 light" style="color:white"><center>Welcome to D&E</h2>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="https://insanelygoodrecipes.com/wp-content/uploads/2021/05/Cherry-Cheesecake-with-Berry-Sauce.png" alt="Unsplashed background img 2"></div>
+  </div>
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+   
+        <body style="background-color:rgb(204, 229, 255);">
+         <nav> 
+          <div class="nav-wrapper deep-purple">
+            <a class="brand-logo white-text"><center>DRINKS</p></a>
+           </div>
+          </nav> 
+         
+    <div class="row"  id="demo">
+
+    </div>
+      <div class="row">
+        <div class="col s12"></div>
+        <div class="col s6"></div>
+        <div class="col s6"></div>
+      </div>
+       
+      <div class="row">
+        <div class="col s12"></div>
+        <div class="col s6"></div>
+        <div class="col s6"></div>
+      </div>
+                           
+   <script> 
+            cars = []
+            Title = []
+            text1 = []
+            
+            function processSheetsData(response) {
+            var data = response.getDataTable();
+            var columns = data.getNumberOfColumns();
+            var rows = data.getNumberOfRows();
+
+            for (var r=0 ; r<rows ; r++) {
+             cars[r] = data.getFormattedValue(r,0);
+             Title[r] = data.getFormattedValue(r,1);
+             text1[r] = data.getFormattedValue(r,2);
+                  }
+              
+            var text = "";
+            for (i = 0; i < cars.length; i++)
+             {
+            text = text + '  <div class="col s12 m4 l2">';
+            text = text + '    <div class="card">';
+            text = text + '     <div class="card-image">';
+            text = text + '      <img src ="' + cars[i] +'">';
+            text = text + '       <span class="card-title">'+ Title[i]+'</span>';
+            text = text + '      </div>';
+            text = text + '      <div class="card-content">';
+            text = text + '        <p>'+ text1[i]+'</p>';
+            text = text + '      </div>';
+            text = text + '      <div class="card-action">';
+            text = text + '        <h5><a href="new1.html?id=' +i+ '"target_blank>'+"read more"+'</a>';
+            text = text + '      </div>';
+            text = text + '     </div>';
+            text = text + '  </div>';
+             }
+             document.getElementById("demo").innerHTML = text;
+    }
+            </script>
+    </body>
+
+	  
+	  
+	  
+	  
+
+<link rel='stylesheet' id='thickbox-css'  href='https://punchdrink.com/wp-includes/js/thickbox/thickbox.css?ver=5.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://punchdrink.com/wp-includes/css/dist/block-library/style.min.css?ver=5.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='cpss-css'  href='https://punchdrink.com/wp-content/plugins/compatible-post-sharing-system/css/cpss/cpss.css?ver=1.0' type='text/css' media='screen' />
+<link rel='stylesheet' id='magnific-popup-css'  href='https://punchdrink.com/wp-content/plugins/compatible-post-sharing-system/css/vendor/magnific-popup/magnific-popup.css?ver=0.9.9' type='text/css' media='screen' />
+<link rel='stylesheet' id='punch-bootstrap-css'  href='https://punchdrink.com/wp-content/themes/rh-punch/css/punch-bootstrap.css?ver=1641581064'>
+
+              <link rel='stylesheet' id='sailthru-subscribe-widget-styles-css'  href='https://punchdrink.com/wp-content/plugins/sailthru-widget/css/widget.subscribe.css?ver=5.8.1' type='text/css' media='all' />
+<script type='text/javascript' src='https://punchdrink.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://punchdrink.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<script src='//ak.sail-horizon.com/spm/spm.v1.min.js?ver=5.8.1' type='text/javascript' async></script>
+<script type='text/javascript' id='tag-js-extra'>
+
+<script type='text/javascript' src='https://punchdrink.com/wp-content/plugins/sailthru-widget/js/tag.js?ver=5.8.1' id='tag-js'></script>
+<script type='text/javascript' src='https://punchdrink.com/wp-content/themes/krnl/js/krnl/bootstrap.js?ver=0.1' id='krnl_bootstrap-js'></script>
+<script type='text/javascript' src='https://punchdrink.com/wp-content/plugins/sailthru-widget/js/widget.subscribe.js?ver=5.8.1' id='sailthru-subscribe-script-js'></script>
+<link rel="https://api.w.org/" href="https://punchdrink.com/wp-json/" /><link rel="alternate" type="application/json" href="https://punchdrink.com/wp-json/wp/v2/pages/151" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://punchdrink.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://punchdrink.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.8.1" />
+<link rel='shortlink' href='https://punchdrink.com/?p=151' />
+<link rel="alternate" type="application/json+oembed" href="https://punchdrink.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpunchdrink.com%2Frecipes%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://punchdrink.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpunchdrink.com%2Frecipes%2F&#038;format=xml" />
+
+            <section class="" id="">
+                <div class="recipe-landing__recipe-search">
+        <!-- search recipes -->
+    <img src="https://assets-prd.punchdrink.com/wp-content/uploads/2021/01/14133416/Recipe-Landing-Banner-1-14-2020.jpg" alt="Find Your New Favorite Drink"/>
+
+<div class="recipe-search__text">
+    <h2 class="recipe-search__heading">Find your new favorite drink</h2>
+    <p class="recipe-search__subheading">Browse recipes from the world's top bartenders.</p>
+    <form action="/recipe-archives" method="get">
+        <fieldset class="recipe-search__fieldset">
+            <label for="recipe-search">Search Recipes</label>
+            <input type="search" id="recipe-search" name="recipe-index__search" placeholder="Search Recipes"/>
+        </fieldset>
+    </form>
+</div>
+    </div>
+    <div class="featured-slideshow featured-slideshow--cocktail-collections">
+                    <div class="featured-slide">
+    <a href="https://punchdrink.com/articles/americanos-are-forever-aperitivo-cocktail-recipe/" class="featured-slide__link">
+        <img src="https://assets-prd.punchdrink.com/wp-content/uploads/2020/11/08150905/Recipe-Lander_Cocktail-Recipe__0005_Americanos.jpg"  class="featured-slide__image" alt="Americanos">
+        <div class="featured-slide__text-wrapper">
+            <h2 class="featured-slide__title">Americanos</h2>
+        </div>
+    </a>
+</div>            <div class="featured-slide">
+    <a href="https://punchdrink.com/articles/other-modern-classic-cocktail-sawyer-wibble-hard-sell-recipe/" class="featured-slide__link">
+        <img src="https://assets-prd.punchdrink.com/wp-content/uploads/2021/03/08152010/Recipe-Lander_Cocktail-Recipe__0000_Other-Modern-Classics.jpg"  class="featured-slide__image" alt="Minor Classics">
+        <div class="featured-slide__text-wrapper">
+            <h2 class="featured-slide__title">Minor Classics</h2>
+        </div>
+    </a>
+</div>            <div class="featured-slide">
+    <a href="https://punchdrink.com/articles/boulevardier-cocktail-recipe-will-take-you-there/" class="featured-slide__link">
+        <img src="https://assets-prd.punchdrink.com/wp-content/uploads/2021/02/08151332/Recipe-Lander_Cocktail-Recipe__0002_Boulevardier.jpg"  class="featured-slide__image" alt="Boulevardier & Co.">
+        <div class="featured-slide__text-wrapper">
+            <h2 class="featured-slide__title">Boulevardier & Co.</h2>
+        </div>
+    </a>
+</div>            <div class="featured-slide">
+    <a href="https://punchdrink.com/articles/pick-your-penicillin-amoxicillin-modern-classic-scotch-cocktail-recipe/" class="featured-slide__link">
+        <img src="https://assets-prd.punchdrink.com/wp-content/uploads/2021/01/08151509/Recipe-Lander_Cocktail-Recipe__0004_Penicillins.jpg"  class="featured-slide__image" alt="Penicillins">
+        <div class="featured-slide__text-wrapper">
+            <h2 class="featured-slide__title">Penicillins</h2>
+        </div>
+    </a>
+</div>            <div class="featured-slide">
+    <a href="https://punchdrink.com/articles/five-unexpected-variations-three-ingredient-cocktail-recipe/" class="featured-slide__link">
+        <img src="https://assets-prd.punchdrink.com/wp-content/uploads/2017/10/Three-Ingredient-COcktail-Recipe.jpg"  class="featured-slide__image" alt="Three-Ingredient Cocktails">
+        <div class="featured-slide__text-wrapper">
+            <h2 class="featured-slide__title">Three-Ingredient Cocktails</h2>
+        </div>
+    </a>
+</div>            <div class="featured-slide">
+    <a href="https://punchdrink.com/articles/five-negroni-cocktail-recipe-riffs-actually-worth-a-damn/" class="featured-slide__link">
+        <img src="https://assets-prd.punchdrink.com/wp-content/uploads/2018/02/Recipe-Slider-Negroni-Cocktail-Recipe-Julie-Reiner-Joaquin-Simo-Naren-Young.jpg"  class="featured-slide__image" alt="Negroni Riffs">
+        <div class="featured-slide__text-wrapper">
+            <h2 class="featured-slide__title">Negroni Riffs</h2>
+        </div>
+    </a>
+</div>            <div class="featured-slide">
+    <a href="https://punchdrink.com/articles/clarify-the-classics/" class="featured-slide__link">
+        <img src="https://assets-prd.punchdrink.com/wp-content/uploads/2021/02/08151714/Recipe-Lander_Cocktail-Recipe__0001_Clarified-Classics.jpg"  class="featured-slide__image" alt="Clarified Classics">
+        <div class="featured-slide__text-wrapper">
+            <h2 class="featured-slide__title">Clarified Classics</h2>
+        </div>
+    </a>
+</div>            <div class="featured-slide">
+    <a href="https://punchdrink.com/articles/all-the-ways-paloma-cocktail-recipe/" class="featured-slide__link">
+        <img src="https://assets-prd.punchdrink.com/wp-content/uploads/2021/04/09164041/Recipe-Lander_Cocktail-Recipe__Palomas.jpg"  class="featured-slide__image" alt="Palomas">
+        <div class="featured-slide__text-wrapper">
+            <h2 class="featured-slide__title">Palomas</h2>
+        </div>
+    </a>
+</div>        </div>
+    <div class="recipe-landing__recipe-browse">
+        <div class="recipe-browse__container">
+        <section 
+        id="content" 
+        class="container  ">
+
+    <div class="row">        
+                <main
+                         role="main">
+                <!-- archive -->
+<div class="recipe-landing__recipe-archive">
+                <div class="recipe-tease">
+    <figure class="recipe-tease__figure">
+        <a href="https://punchdrink.com/recipes/old-fashioned-appetizer/">
+            <img src="https://assets-prd.punchdrink.com/wp-content/uploads/2022/01/06222338/Thumb-Old-Fashioned-Appetizer-Whiskey-Cocktail-Recipes.jpg"  class="recipe-tease__image">
+        </a>
+    </figure>
+    <div class="recipe-tease__text">
+        <h2 class="recipe-tease__title">
+            <a href="https://punchdrink.com/recipes/old-fashioned-appetizer/">Old-Fashioned Appetizer</a>
+        </h2>
+        <p class="recipe-tease__excerpt poop">An early dressed-up Old-Fashioned with Dubonnet, Curaçao and a dash of absinthe. </p>
+        	<div class="stars-outer">
+		<div class="stars-wrapper" data-post-id="115673">
+			<div class="stars-overlay" style="width: 20%"></div>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+		</div>
+	</div>	
+    </div>
+</div>
+            <div class="recipe-tease">
+    <figure class="recipe-tease__figure">
+        <a href="https://punchdrink.com/recipes/chelsea-sidecar/">
+            <img src="https://assets-prd.punchdrink.com/wp-content/uploads/2021/12/21151808/Thumb2-Chelsea-Sidecar-Cocktail-Overstory-NYC.jpg"  class="recipe-tease__image">
+        </a>
+    </figure>
+    <div class="recipe-tease__text">
+        <h2 class="recipe-tease__title">
+            <a href="https://punchdrink.com/recipes/chelsea-sidecar/">Chelsea Sidecar</a>
+        </h2>
+        <p class="recipe-tease__excerpt poop">The gin-based Savoy standby, retooled for the modern drinker.</p>
+        	<div class="stars-outer">
+		<div class="stars-wrapper" data-post-id="115336">
+			<div class="stars-overlay" style="width: 20%"></div>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+		</div>
+	</div>	
+    </div>
+</div>
+            <div class="recipe-tease">
+    <figure class="recipe-tease__figure">
+        <a href="https://punchdrink.com/recipes/glueh-kriek/">
+            <img src="https://assets-prd.punchdrink.com/wp-content/uploads/2021/12/20214748/Thumb-Gluhbier-Mulled-Beer-Holiday-Hot-Cocktail-Recipe.jpg"  class="recipe-tease__image">
+        </a>
+    </figure>
+    <div class="recipe-tease__text">
+        <h2 class="recipe-tease__title">
+            <a href="https://punchdrink.com/recipes/glueh-kriek/">Glueh Kriek</a>
+        </h2>
+        <p class="recipe-tease__excerpt poop">A glühbier recipe that works with sours, stouts, ales and more. </p>
+        	<div class="stars-outer">
+		<div class="stars-wrapper" data-post-id="115276">
+			<div class="stars-overlay" style="width: 100%"></div>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+		</div>
+	</div>	
+    </div>
+</div>
+            <div class="recipe-tease">
+    <figure class="recipe-tease__figure">
+        <a href="https://punchdrink.com/recipes/pecan-swirl/">
+            <img src="https://assets-prd.punchdrink.com/wp-content/uploads/2021/12/20202048/Thumb-Brandy-Alexander-Christine-Wiseman-Vegan-Holiday-Cocktail-Recipe.jpg"  class="recipe-tease__image">
+        </a>
+    </figure>
+    <div class="recipe-tease__text">
+        <h2 class="recipe-tease__title">
+            <a href="https://punchdrink.com/recipes/pecan-swirl/">Pecan Swirl</a>
+        </h2>
+        <p class="recipe-tease__excerpt poop">If the Brandy Alexander and Espresso Martini had a baby.</p>
+        	<div class="stars-outer">
+		<div class="stars-wrapper" data-post-id="115262">
+			<div class="stars-overlay" style="width: 30%"></div>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+		</div>
+	</div>
+    </div>
+</div>
+            <div class="recipe-tease">
+    <figure class="recipe-tease__figure">
+        <a href="https://punchdrink.com/recipes/the-grasshopper-lies-heavy/">
+            <img src="https://assets-prd.punchdrink.com/wp-content/uploads/2021/12/20200301/Thumb-Brandy-Alexander-David-Kinsey-Vegan-Holiday-Cocktail-Recipe.jpg"  class="recipe-tease__image">
+        </a>
+    </figure>
+    <div class="recipe-tease__text">
+        <h2 class="recipe-tease__title">
+            <a href="https://punchdrink.com/recipes/the-grasshopper-lies-heavy/">The Grasshopper Lies Heavy</a>
+        </h2>
+        <p class="recipe-tease__excerpt poop">A mentholated take on the Brandy Alexander. </p>
+        	<div class="stars-outer">
+		<div class="stars-wrapper" data-post-id="115256">
+			<div class="stars-overlay" style="width: 40%"></div>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+		</div>
+	</div>	
+    </div>
+</div>
+            <div class="recipe-tease">
+    <figure class="recipe-tease__figure">
+        <a href="https://punchdrink.com/recipes/avena-alexandra/">
+            <img src="https://assets-prd.punchdrink.com/wp-content/uploads/2021/12/20171825/Thumb-Brandy-Alexander-Fanny-Chu-Vegan-Holiday-Oatmilk-Cocktail-Recipe.jpg"  class="recipe-tease__image">
+        </a>
+    </figure>
+    <div class="recipe-tease__text">
+        <h2 class="recipe-tease__title">
+            <a href="https://punchdrink.com/recipes/avena-alexandra/">Avena Alexandra</a>
+        </h2>
+        <p class="recipe-tease__excerpt poop">A rum-based, vegan spin on the Alexander. </p>
+        	<div class="stars-outer">
+		<div class="stars-wrapper" data-post-id="115249">
+			<div class="stars-overlay" style="width: 33.333333333333%"></div>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+			<i class="icon-star"></i>
+		</div>
+	</div>	
+    </div>
+</div>
+    </div>
+<div class="recipe-landing__see-more recipe-landing__see-more--recipes">
+    <a href="/recipe-archives/?more-recipes-btn=1" class="">More Recipes</a>
+</div>            
+      </main>
+          </div>
+          </section>
+<script type='text/javascript' src='https://punchdrink.com/wp-content/plugins/compatible-post-sharing-system/js/cpss/cpss.js?ver=1.0' id='cpss-js'></script>
+<script type='text/javascript' src='https://punchdrink.com/wp-content/plugins/krnl-slidesjs/js/jquery.slides.min.js?ver=3.0.4' id='krnl_slidesjs-js'></script>
+<script type='text/javascript' src='https://punchdrink.com/wp-content/themes/rh-punch/js/build/vendor-min.js?ver=1641581064' id='vendor-js'></script>
+<script type='text/javascript' src='https://punchdrink.com/wp-content/themes/rh-punch/js/build/punch-min.js?ver=1641581064' id='punch-js'></script>
+<script type='text/javascript' src='https://punchdrink.com/wp-includes/js/underscore.min.js?ver=1.13.1' id='underscore-js'></script>
+<script type='text/javascript' id='wp-util-js-extra'>
+              </script>
+              
+		<footer style="background-color:rgb(0,0,102);">
+		  <div class="container"> 
+		  <div>
+		  <a class="white-text" href="https://maps.google.com.tw/maps?f=q&h1=zh-TW&q=24.121308,120.677175&z=16&t=q"target="_blank"><big>Location</big></a> 
+		  </div>
+
+		  <div class="col l6 s12">
+		  <center><iframe width="80%" height="130%" 
+		  src="https://maps.google.com.tw/maps?f=q&h1=zh-TW&q=24.121308,120.677175&z=16&t=q&output=embed"title="Iframe Example"> 
+		  </iframe>
+		</div>
+			  <div class="col l6 s12">
+				<h6 class="white-text"><big>Contact us</h6>
+				<ul>
+				  <i><a class="grey-text text-lighten-3" href="https://www.facebook.com/groups/462631141841016"></h2>FB</a>
+				  <i><a class="grey-text text-lighten-3" href="https://line.me/R/ti/p/@gomaji?from=page"></h2>Line</a>
+				  <i><a class="grey-text text-lighten-3" ></i></h2> 02-1234-5678</a>
+			    </ul>
+			  </div>
+		
+			<div class="col l6 s12">    
+			<div class="footer-copyright">
+			  <div class="container" style="color:white"><small>© 2022 CHRISTINE</small>
+	    	  <p style="font-size:0.5px;"></p>
+		      </div>
+		    </div>
+	        </div>
+	  </footer>
+  </html>

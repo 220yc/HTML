@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	  <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+ 
+	  
+		<nav class=role="navigation"; style="background-color:rgb(0,0,102)">
+			<div class="nav-wrapper container">
+			  <a id="logo-container" class="brand-logo" style="color:white">D&E</a>
+			  <ul class="right hide-on-med-and-down">
+
+				<li><a class="white-text" href="comment.html?">COMMENT</a></li>
+				<li><a class="white-text" href="result.html?">REVIEW</a></li>
+				<li><a class="white-text" onclick="alert('02-1234-5678')"><i class="material-icons">phone</i></a></li>    	
+				<li><a class="white-text" href="API.html?">PIXNET</a></li>
+				<li><a class="white-text" href="https://punchdrink.com/">MORE</a></li>
+				<li><a href="https://punchdrink.com/"></a></li>
+			  </ul>
+			  <ul id="nav-mobile" class="sidenav">
+				<li><a href="https://punchdrink.com/">More</a></li>
+			  </ul>
+			  <a href="https://punchdrink.com/" data-target="nav-mobile" class="sidenav-trigger" style="color:white"><i class="material-icons">menu</i></a>
+			</div>
+		  </nav>
+
+		<body style="background-color:rgb(204,229,255)">
+	<script>
+	var xmlhttp = new XMLHttpRequest(); 
+	var url = "https://emma.pixnet.cc/mainpage/blog/categories/hot/26?page=1&per_page=10&api_version=2&format=json";
+
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			var myArr = JSON.parse(xmlhttp.responseText);
+			myFunction(myArr);
+		}
+	}
+	xmlhttp.open("GET", url, true);
+	xmlhttp.send();
+
+	function myFunction(arr) {
+		var data = arr.articles;
+		var out = "";
+		var i;
+		for (i = 0; i < data.length; i++) {
+			if ( data[i].thumb != "" ) out += '<img src="' + data[i].thumb + '" />';
+			if ( data[i].title != "" ) out += '<p><a href="' + data[i].link + '" target="_blank">' + data[i].title + '</a></p>';
+			out += '<p> </p>';
+			if ( data[i].tags.length != 0 )
+			   {
+				out += '<p>Tags: ';
+				for (j = 0; j < data[i].tags.length; j++) {
+					out += data[i].tags[j].tag + ', ';
+				}
+				out += '</p>';
+			   }
+			out += '<br /><br /><br />';
+		}
+		document.getElementById("pixnet-stuff").innerHTML = out;
+	}
+	</script>
+</head>
+<body>
+	<div id="pixnet-stuff">
+	</div>
+</body>
+
+
+
+		<footer style="background-color:rgb(0,0,102);">
+		  <div class="container"> 
+		  <div>
+		  <a class="white-text" href="https://maps.google.com.tw/maps?f=q&h1=zh-TW&q=24.121308,120.677175&z=16&t=q"target="_blank"><big>Location</big></a> 
+		  </div>
+
+		  <div class="col l6 s12">
+		  <center><iframe width="80%" height="130%" 
+		  src="https://maps.google.com.tw/maps?f=q&h1=zh-TW&q=24.121308,120.677175&z=16&t=q&output=embed"title="Iframe Example"> 
+		  </iframe>
+		</div>
+			  <div class="col l6 s12">
+				<h6 class="white-text">Contact us</h6>
+				<ul>
+				  <i><a class="grey-text text-lighten-3" href="https://www.facebook.com/groups/462631141841016"></h2>FB</a>
+				  <i><a class="grey-text text-lighten-3" href="https://line.me/R/ti/p/@gomaji?from=page"></h2>Line</a>
+				  <i><a class="grey-text text-lighten-3" ></i></h2> 02-1234-5678</a>
+			    </ul>
+			  </div>
+		
+			<div class="col l6 s12">    
+			<div class="footer-copyright">
+			  <div class="container">
+				© 2022 CHRISTINE
+	    	  <p style="font-size:1px;"></p>
+		      </div>
+		    </div>
+	        </div>
+	  </footer>
+</html>

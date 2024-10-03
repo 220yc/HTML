@@ -1,0 +1,186 @@
+<!DOCTYPE html>   
+<html> 
+ 
+<head>
+	  <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	  
+		<nav class=role="navigation"; style="background-color:rgb(0,0,102)">
+			<div class="nav-wrapper container">
+			  <a id="logo-container" class="brand-logo" style="color:white">D&E</a>
+			  <ul class="right hide-on-med-and-down">
+
+				<li><a class="white-text" href="comment.html?">COMMENT</a></li>
+				<li><a class="white-text" href="result.html?">REVIEW</a></li>
+				<li><a class="white-text" onclick="alert('02-1234-5678')"><i class="material-icons">phone</i></a></li>    	
+				<li><a class="white-text" href="API.html?">PIXNET</a></li>
+				<li><a class="white-text" href="https://punchdrink.com/">MORE</a></li>
+				<li><a href="https://punchdrink.com/"></a></li>
+			  </ul>
+			  <ul id="nav-mobile" class="sidenav">
+				<li><a href="https://punchdrink.com/">More</a></li>
+			  </ul>
+			  <a href="https://punchdrink.com/" data-target="nav-mobile" class="sidenav-trigger" style="color:white"><i class="material-icons">menu</i></a>
+			</div>
+		  </nav>
+
+
+ <script type="text/javascript">
+  // 取得網址裡的參數 
+  function GetUrlVar(VarName) 
+  {
+    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regexS = "[\\?&]" + VarName + "=([^&#]*)";
+    var regex = new RegExp(regexS);
+    var results = regex.exec(window.location.href);
+    if (results == null)
+       return "";
+    else
+    return results[1]; 
+  }
+
+ </script>
+ <!-- 利用Google Visualization讀取Google Sheet https://www.labnol.org/code/google-sheet-d3js-visualization-200608 -->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script>
+
+     // https://developers.google.com/chart/interactive/docs/quick_start
+     // Load the Visualization API and the corechart package.
+     google.charts.load('current', {'packages':['corechart']});
+     // Set a callback to run when the Google Visualization API is loaded. 
+     google.charts.setOnLoadCallback(init);
+ 
+      function init() {
+        // 這個例子使用的試算表是 https://docs.google.com/spreadsheets/d/1QScI5d56Kh-LGywY4WR6EvRGPcalFQYUAdqMxbFVDvk/copy
+        // 將上述試算表另存副本後，你要在自己的雲端硬碟將該試算表設定成[知道連結的使用者都能查看]。
+        // 然後讓程式讀取 https://docs.google.com/spreadsheets/d/瀏覽器網址列上的網址擷取序號部分/gviz/tq?sheet=工作表名稱
+        // 也就是將下列的 1QScI5d56Kh-LGywY4WR6EvRGPcalFQYUAdqMxbFVDvk 更換成自己的檔案序號，以及最後部分指讀取哪個工作表。
+        var url =
+          'https://docs.google.com/spreadsheets/d/1wV6r7znlx1C9rk0TiatcSdI50qjGXc6Lo6WaJ3Elsuc/gviz/tq?sheet=工作表1';
+        var query = new google.visualization.Query(url);
+        query.setQuery('select *');
+        query.send(processSheetsData);
+      }   
+      </script>    
+  </head>
+  
+  <body>  
+ <div id="demo"></div>
+ <div id="text"></div>
+  
+ <script>   
+  pic = []
+  text = []
+  
+   function processSheetsData(response) {
+     var data = response.getDataTable();
+     var columns = data.getNumberOfColumns();
+     var rows = data.getNumberOfRows();
+ 
+     for (var r=0 ; r<rows ; r++) { 
+    pic[r] = data.getFormattedValue(r,0);
+    text[r] = data.getFormattedValue(r,3);   
+   }
+
+     // 要先取得網址裡的參數 
+     var X = decodeURIComponent(GetUrlVar('id'));
+     var i = Number(X);
+     alert("Show Ingredients")
+     document.getElementById("demo").innerHTML = "<center><img src='"+  pic[i] +"'width='60%'></center>"
+                                                        + "<center>" + text[i] + "</center>"
+   
+   }
+ </script></br>
+ 
+            <nav> 
+            <div class="nav-wrapper deep-purple">
+              <a class="brand-logo white-text"><center>CAKES</p></a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+               </ul>
+             </div>
+            </nav>  
+            <div class="row" id="demo"></div></br>
+				</div>
+  <script>
+
+        var slidespeed=1500
+        var slideimages=new Array(
+        "https://media.istockphoto.com/photos/pancakes-picture-id96430985?k=20&m=96430985&s=612x612&w=0&h=lgPzugJRc70yM9EP4NV0DoNaDJQuQ1bJ-x5bjpDmLI4=",
+        "https://media.istockphoto.com/photos/pancakes-picture-id172249723?k=20&m=172249723&s=612x612&w=0&h=_ufrg8cWylNI6ZPtPZcMF6dcOP8HwgMI39C0ka4Z_yk=",
+        "https://media.istockphoto.com/photos/pancakes-or-fritters-with-blueberries-and-honey-syrup-picture-id585047250?k=20&m=585047250&s=612x612&w=0&h=OrYDCpwtzIFr_OxbqATtoIjbqVhWIg8-70vDRlcjb5Q=" ,
+        "https://media.istockphoto.com/photos/stack-of-delicious-pancakes-picture-id533708722?k=20&m=533708722&s=612x612&w=0&h=9aHtK6Xg9UqYuv1CYjkjFsej0msE-SCclim2iFf-EIY=",
+        "https://media.istockphoto.com/photos/homemade-pancakes-with-berries-and-banana-picture-id975988956?k=20&m=975988956&s=612x612&w=0&h=u-Pwms5x0-Czavp3u2BpyXm73MAdX82N_V0wRLcnzns=",
+        "https://media.istockphoto.com/photos/pancakes-picture-id174929615?k=20&m=174929615&s=612x612&w=0&h=PVINrfvlbMetqtfdm7PtHFPOi2nxlm-uA0J39BuzLCs=",
+        "https://media.istockphoto.com/photos/tasty-pancakes-with-berry-sauce-on-wooden-table-picture-id1093875602?k=20&m=1093875602&s=612x612&w=0&h=B8N3Gd6DvzTy1m81-2pZtd7eZmAfpXWNzPkdJRQbDZ4=")
+        var imageholder=new Array()
+        var ie55=window.createPopup
+        for (i=0;i<slideimages.length;i++){ 
+        imageholder[i]=new Image()
+        imageholder[i].src=slideimages[i]
+        }
+        function gotoshow(){
+        window.location=slidelinks[whichlink]
+        }
+        --> 
+        </script>
+        <center><img src="https://cafedelites.com/wp-content/uploads/2015/01/Greek-Yoghurt-Mixed-Berry-Choc-Chip-Pancakes-23.jpg" 
+        name="slide" border=0 style="filter:progid:DXImageTransform.Microsoft.Pixelate(MaxSquare=15,Duration=1)" align="middle"+ '" width="60%">
+        <script language="JavaScript1.1">
+        <!--
+        var whichlink=0
+        var whichimage=0
+        var pixeldelay=(ie55)? document.images.slide.filters[0].duration*1000 : 0
+        function slideit(){
+        if (!document.images) return
+        if (ie55) document.images.slide.filters[0].apply()
+        document.images.slide.src=imageholder[whichimage].src
+        if (ie55) document.images.slide.filters[0].play()
+        whichlink=whichimage
+        whichimage=(whichimage<slideimages.length-1)? whichimage+1 : 0
+        setTimeout("slideit()",slidespeed + pixeldelay)
+        }
+        slideit() 
+        -->
+        </script>
+
+				<div> </br>
+ 
+ 
+</body> 
+
+
+		<footer style="background-color:rgb(0,0,102);">
+		  <div class="container"> 
+		  <div>
+		  <a class="white-text" href="https://maps.google.com.tw/maps?f=q&h1=zh-TW&q=24.121308,120.677175&z=16&t=q"target="_blank"><big>Location</big></a> 
+		  </div>
+
+		  <div class="col l6 s12">
+		  <center><iframe width="80%" height="130%" 
+		  src="https://maps.google.com.tw/maps?f=q&h1=zh-TW&q=24.121308,120.677175&z=16&t=q&output=embed"title="Iframe Example"> 
+		  </iframe>
+		</div>
+			  <div class="col l6 s12">
+				<h6 class="white-text">Contact us</h6>
+				<ul>
+				  <i><a class="grey-text text-lighten-3" href="https://www.facebook.com/groups/462631141841016"></h2>FB</a>
+				  <i><a class="grey-text text-lighten-3" href="https://line.me/R/ti/p/@gomaji?from=page"></h2>Line</a>
+				  <i><a class="grey-text text-lighten-3" ></i></h2> 02-1234-5678</a>
+			    </ul>
+			  </div>
+		
+			<div class="col l6 s12">    
+			<div class="footer-copyright">
+			  <div class="container">
+				© 2022 CHRISTINE
+	    	  <p style="font-size:1px;"></p>
+		      </div>
+		    </div>
+	        </div>
+	  </footer>
+
+</html>

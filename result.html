@@ -1,0 +1,145 @@
+
+<!DOCTYPE html> 
+<html> 
+<head>  
+	  <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+	  
+		<nav class=role="navigation"; style="background-color:rgb(0,0,102)">
+			<div class="nav-wrapper container">
+			  <a id="logo-container" class="brand-logo" style="color:white">D&E</a>
+			  <ul class="right hide-on-med-and-down">
+
+				<li><a class="white-text" href="comment.html?">COMMENT</a></li>
+				<li><a class="white-text" href="result.html?">REVIEW</a></li>
+				<li><a class="white-text" onclick="alert('02-1234-5678')"><i class="material-icons">phone</i></a></li>    	
+				<li><a class="white-text" href="API.html?">PIXNET</a></li>
+				<li><a class="white-text" href="https://punchdrink.com/">MORE</a></li>
+				<li><a href="https://punchdrink.com/"></a></li>
+			  </ul>
+			  <ul id="nav-mobile" class="sidenav">
+				<li><a href="https://punchdrink.com/">More</a></li>
+			  </ul>
+			  <a href="https://punchdrink.com/" data-target="nav-mobile" class="sidenav-trigger" style="color:white"><i class="material-icons">menu</i></a>
+			</div>
+		  </nav>
+	  
+	  
+
+  <script type="text/javascript">
+		// 取得網址裡的參數 
+		function GetUrlVar(VarName) 
+		{
+		  name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+		  var regexS = "[\\?&]" + VarName + "=([^&#]*)";
+		  var regex = new RegExp(regexS);
+		  var results = regex.exec(window.location.href);
+		  if (results == null)
+		   	 return "";
+		  else
+			 return results[1];
+		}
+	</script>
+	<!-- 利用Google Visualization讀取Google Sheet https://www.labnol.org/code/google-sheet-d3js-visualization-200608 -->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script>
+     // https://developers.google.com/chart/interactive/docs/quick_start
+     // Load the Visualization API and the corechart package.
+     google.charts.load('current', {'packages':['corechart']});
+     // Set a callback to run when the Google Visualization API is loaded.	
+     google.charts.setOnLoadCallback(init);
+     function init() {
+       // 這個例子使用的試算表是 https://docs.google.com/spreadsheets/d/1QScI5d56Kh-LGywY4WR6EvRGPcalFQYUAdqMxbFVDvk/copy
+       // 將上述試算表另存副本後，你要在自己的雲端硬碟將該試算表設定成[知道連結的使用者都能查看]。
+       // 然後讓程式讀取 https://docs.google.com/spreadsheets/d/瀏覽器網址列上的網址擷取序號部分/gviz/tq?sheet=工作表名稱
+       // 也就是將下列的 1QScI5d56Kh-LGywY4WR6EvRGPcalFQYUAdqMxbFVDvk 更換成自己的檔案序號，以及最後部分指讀取哪個工作表。
+       var url =
+         'https://docs.google.com/spreadsheets/d/1EwXYEO-mIFCsJKhJPvaKDTbllh0KxkLvTleyS2NxdEw/gviz/tq?sheet=表單回應1';
+       var query = new google.visualization.Query(url);       
+       query.setQuery('select *');
+       query.send(processSheetsData);
+     }	
+    </script>	
+ 
+</head>
+      <div class="card-panel teal light-green lighten-4">
+      <nav>
+       <div class="nav-wrapper deep-purple">
+        <a href="appraise.html" class="brand-logo">　Customer Review</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        </ul>
+       </div>
+      </nav></br>
+        
+    <div class="row"  id="demo"> 
+
+    </div>
+      <div class="row">
+        <div class="col s12"></div>
+        <div class="col s6"></div>
+        <div class="col s6"></div>
+      </div>
+
+<script>
+        fname = []
+        lname = []
+		score  = []
+       function processSheetsData(response) {
+		var data = response.getDataTable();
+		var columns = data.getNumberOfColumns();
+		var rows = data.getNumberOfRows();
+          
+		for (var r=0 ; r<rows ; r++) {
+		    fname[r] = data.getFormattedValue(r,1);	
+            lname[r] = data.getFormattedValue(r,2);
+			score[r] = data.getFormattedValue(r,3);
+            }
+
+        var text = "";
+         for (i = 1 ; i < fname.length; i++) {
+          text = text + fname[i]+' ';
+          text = text + lname[i]+' ------ ';
+          text = text + score[i]+'<br>';
+          }
+       document.getElementById("demo").innerHTML = text;}
+         
+</script>
+</body>
+
+        <footer style="background-color:rgb(0,0,102);">
+		  <div class="container"> 
+
+		  <div>
+		  <a class="white-text" href="https://maps.google.com.tw/maps?f=q&h1=zh-TW&q=24.121308,120.677175&z=16&t=q"target="_blank"><big>Location</big></a> 
+		  </div>
+
+		  <div class="col l6 s12">
+		  <center><iframe width="80%" height="130%" 
+		  src="https://maps.google.com.tw/maps?f=q&h1=zh-TW&q=24.121308,120.677175&z=16&t=q&output=embed"title="Iframe Example"> 
+		  </iframe>
+		  </div>
+			  <div class="col l6 s12">
+				<h6 class="white-text">Contact us</h6>
+				<ul>
+				  <i><a class="grey-text text-lighten-3" href="https://www.facebook.com/groups/462631141841016"></h2>FB</a>
+				  <i><a class="grey-text text-lighten-3" href="https://line.me/R/ti/p/@gomaji?from=page"></h2>Line</a>
+				  <i><a class="grey-text text-lighten-3" ></i></h2> 02-1234-5678</a>
+			    </ul>
+			  </div>
+		
+			<div class="col l6 s12">    
+			<div class="footer-copyright">
+			  <div class="container">
+				© 2022 CHRISTINE
+	    	  <p style="font-size:1px;"></p>
+		      </div>
+		    </div>
+	        </div>
+	  </footer>
+
+</html>
